@@ -31,10 +31,8 @@ function App() {
           setSize(data.paging.total);
         } else {
           setError(data.message);
-          console.log(data.message);
         }
       });
-    console.log(ITEMS_PER_PAGE * (page - 1), "offset", "page", page);
   }, [page, search]);
 
   return (

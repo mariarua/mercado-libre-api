@@ -6,14 +6,9 @@ function SearchBar({ onSearch }) {
 
   const handleEnter = (e) => {
     if (e.key === "Enter" && search !== "") {
-      console.log("busca ps", search);
       onSearch(search);
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("keydown", () => console.log("ola"));
-  }, []);
 
   return (
     <div className="bg-white shadow-mds border-2 rounded-md w-full flex ">
@@ -26,7 +21,7 @@ function SearchBar({ onSearch }) {
         id="inputsito"
         type="text"
         placeholder="Buscar productos"
-        className=" p-3 w-5/6 focus:outline-none"
+        className=" p-3 w-full focus:outline-none"
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);
