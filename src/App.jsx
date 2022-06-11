@@ -1,9 +1,21 @@
-import { useState } from "react";
+import SearchBar from "./components/SearchBar";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const handleSearch = (search) => {
+    console.log("debo buscar00", search);
+    fetch("https://api.mercadolibre.com/sites/MCO/search?q=" + search)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.results);
+      });
+  };
 
-  return <div></div>;
+  return (
+    <div className="bg-yellow-50 h-screen">
+      <SearchBar onSearch={handleSearch} />
+      <div></div>
+    </div>
+  );
 }
 
 export default App;
